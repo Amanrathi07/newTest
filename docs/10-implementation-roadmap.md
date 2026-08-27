@@ -10,13 +10,13 @@
 | 4 | Own-demand (consumer) | months 18+ | consumer booking + SEO (optional/strategic) | Phase D of 01 |
 
 ## 2. Phase 0 — Foundations (weeks 1-4)
-\[s] - Setup monorepo, TS, lint, format, CI (GitHub Actions).
-\[s] - Envs dev/staging/prod; secret manager.
-\[s] - Postgres + PostGIS provisioning (Neon MVP) + Flyway baseline migrations.
-\[s] - NestJS API skeleton with RBAC + Clerk auth.
-\[s] - Ledger schema + money utilities (integer cents) + balance invariant tests.
-\[s] - Testing: Jest + Pact (contracts), Playwright for web smoke.
-\n## 3. Phase 1 — Core loop (weeks 5-16)
+- Setup monorepo, TS, lint, format, CI (GitHub Actions).
+- Envs dev/staging/prod; secret manager.
+- Postgres + PostGIS provisioning (Neon MVP) + Flyway baseline migrations.
+- NestJS API skeleton with RBAC + Clerk auth.
+- Ledger schema + money utilities (integer cents) + balance invariant tests.
+- Testing: Jest + Pact (contracts), Playwright for web smoke.
+## 3. Phase 1 — Core loop (weeks 5-16)
 Bulletin sprint-by-sprint (2-wk sprints by default):
 - **S1**: Mover signup journey (ID/KBA stub) + identity + basic profile.
 - **S2**: STRONG integration (adapter + webhook/CSV) + Checkr; status machine + mirror.

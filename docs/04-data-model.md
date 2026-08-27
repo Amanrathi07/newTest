@@ -1,6 +1,6 @@
 # 04 — Data Model
 
-All money values are **integer cents (USC)** with `CHECK >= 0`. Timestamps are `timestamptz` stored in UTC. Bob stays in Postgres + PostGIS.
+All money values are **integer cents (USC)** with `CHECK >= 0`. Timestamps are `timestamptz` stored in UTC. Data sits in Postgres + PostGIS.
 
 ## 1. ERD (core)
 

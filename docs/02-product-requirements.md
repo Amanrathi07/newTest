@@ -32,7 +32,7 @@
 ## 3. User stories (MoSCoW)
 
 ### P1 (MUST), epic: Onboarding & Screening
-- **US-01** As a Mover I complete a journey: verify identity (ID + live selfie), SSI inputs, then assessments. *~0.5 days.* **Acccept:** profile enters PENDING_SCREEN.
+- **US-01** As a Mover I complete a journey: verify identity (ID + live selfie), then assessments. **Accept:** profile enters PENDING_SCREEN.
 - **US-02** As STRONG rigger I can push a screening verdict; system converts profile to SCREENED or REJECTED with reason. **Acccept:** status transition visible to partner and admin; audit log.
 - **US-03** As Ops I trigger a background check via Checkr; completion webhook moves Mover to BACKGROUND_PENDING then ACTIVE. **Acccept:** Checkr candidate id stored, status not orphaned.
 - **US-04** As Finance I must see and sign a W-9; Mover cannot accept paid jobs without executed W-9. **Acccept:** payout disabled until e-sign returned.
@@ -43,16 +43,16 @@
 - **US-11** As Ops I can auto-deactivate a Mover with >3 no-shows in 90 days (policy flag). **Acccept:** flow jumps to REJECTED/INACTIVE.
 
 ### P1, epic Job intake (partner)
-- **US-20** As a Dispatcher I post a job (payload with fits my schema) OR call `POST /v1/jobs`; it is validated & accepted with a `job_id`. reject if >72h sourcing window and no coverage. **Acccept:** idempotent (same payload same id), creates Job in RECEIVED.
+- **US-20** As a Dispatcher I post a job (payload that fits my schema) OR call `POST /v1/jobs`; it is validated and accepted with a `job_id`; rejected if >72h sourcing window with no coverage. **Accept:** idempotent (same payload same id), creates Job in RECEIVED.
 - **US-21** As an integrator I call `GET /v1/partners/{id}/jobs?since=` for missed events; server replays. **Acccept:** cursor-based.
 
 ### P1, epic matching/dispatch
-- **US-30** As the system I score eligible Movers (geo+availability+earnings) and surface a tiered broadcast. **Acc:** score fields logged (SHOW me the weightings).
-- **US-31** As a Mover I accept an offer; first acceptance wins; others receive REGRET stack; job moves to ASSIGNED.
-- **US-32** Same-day jobs go to a low-tier leisure window? No — reserve, cooler: broadcast to currently-online (presence) Movers with job-score >= X.
+- **US-30** As the system I score eligible Movers (geo + availability + earnings) and surface a tiered broadcast. **Accept:** score fields logged with their weightings.
+- **US-31** As a Mover I accept an offer; first acceptance wins; others receive a REGRET notice; job moves to ASSIGNED.
+- **US-32** Same-day jobs are broadcast to currently-online Movers (presence) with job-score >= threshold, with a shorter offer TTL.
 
 ### P1, epic execution
-- **US-40** As a Mover I voice/pull job details (addresses, PPE door notes, photos). 
+- **US-40** As a Mover I view/pull job details (addresses, door notes, photos).
 - **US-41** As a Mover I geofence-check-in at START; app records time/loc; timer starts. **geofence radius** per config.
 - **US-42** As a Mover I check out at END; completion photo uploaded; both check-ins geotagged; timeline persists.
 - **US-43** As Crew Lead I confirm handover & select ANY issue flag; if a claim, an incident record is auto-created.
@@ -72,7 +72,7 @@
 | Capability | MVP | V2 |
 |---|---|---|
 | 1 demand partner, HTTP + webhook intake | YES | partners self-serve |
-| STRING integration via webhook + CSV fallback | YES | n/a |
+| STRONG integration via webhook + CSV fallback | YES | n/a |
 | Mover app (PWA) screens | YES | native Expo |
 | Payments (check-in/out, 70/30, Stripe payout) | YES | instant payout, withholdings |
 | Notification chain (dispatch->accept->reminders) | YES | richer push |

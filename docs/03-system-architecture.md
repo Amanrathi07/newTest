@@ -13,7 +13,7 @@
 flowchart LR
     M["Customer / Move Owner"] ---|"job & status"| C["CrewLink Core"]
     P["SCS Website"] --->|"POST /jobs, webhooks, invoices"| C
-    MU["Music"] --->|"same partner API"| C
+    MU["Muvr"] --->|"same partner API"| C
     S["STRONG Sales Admin"] <-->|"screening verdict webhooks"| C
     CK["Checkr"] <-->|"background check API"| C
     TW["Twilio"] <--|"SMS / push"| C
